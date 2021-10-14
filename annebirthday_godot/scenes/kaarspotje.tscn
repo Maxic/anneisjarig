@@ -8,7 +8,7 @@
 cast_shadow = 0
 
 [node name="OmniLight" type="OmniLight" parent="." index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0882019, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
 light_color = Color( 0.968627, 0.796078, 0.341176, 1 )
 shadow_enabled = true
-omni_range = 20.0
+omni_range = 8.0
