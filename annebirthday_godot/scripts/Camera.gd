@@ -17,7 +17,9 @@ var velocity := Vector3()
 var initial_rotation
 
 func _ready():
-	initial_rotation = rotation.y
+	#rotation_degrees.y = -130
+	initial_rotation = rotation_degrees.y
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
 	# Mouse look (effective only if the mouse is captured)
