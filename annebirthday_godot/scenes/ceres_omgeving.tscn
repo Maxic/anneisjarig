@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/omgeving/ceres_omgeving.glb" type="PackedScene" id=1]
+
+[node name="ceres_omgeving" instance=ExtResource( 1 )]
