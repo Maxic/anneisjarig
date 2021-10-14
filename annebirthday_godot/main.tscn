@@ -1,12 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
-[ext_resource path="res://assets/models/pijp_kapot/pijp_kapot.glb" type="PackedScene" id=2]
-[ext_resource path="res://assets/models/pijp_groot/pijp_groot.glb" type="PackedScene" id=3]
+[ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/pijp_groot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ceres_omgeving.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/kaarspotje.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=6]
+[ext_resource path="res://scenes/ruine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/tree_sphere.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/main.gd" type="Script" id=9]
+[ext_resource path="res://scenes/tree_blobby.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/tree_bush_three.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/models/grass_2/grass_leaves.material" type="Material" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.203922, 0.45098, 0, 1 )
@@ -18,48 +23,100 @@ size = Vector2( 200, 200 )
 [node name="main" type="Node"]
 script = ExtResource( 9 )
 
-[node name="pijp_groot" parent="." instance=ExtResource( 3 )]
+[node name="see_shit_sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.302819, 0.953048, 0, -0.953048, -0.302819, 1.46211, 17.689, 33.0521 )
+visible = false
+layers = 3
+light_energy = 0.65
+light_indirect_energy = 8.4
 
-[node name="pijp_kapot" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117378, 9.53674e-07, 0.0366611 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="world_env" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
 
-[node name="night_sun" type="DirectionalLight" parent="."]
+[node name="grond" type="CSGMesh" parent="."]
+cast_shadow = 0
+mesh = SubResource( 2 )
+material = ExtResource( 12 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34771, 1.47702, -12.0471 )
+far = 3000.0
+script = ExtResource( 6 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.33951, 37.1307, -3.2666 )
+layers = 3
+light_color = Color( 1, 0.827451, 0.501961, 1 )
+light_energy = 3.0
+light_cull_mask = 4294967289
+spot_range = 31.9
+
+[node name="kaarsen" type="Node" parent="."]
+
+[node name="kaarspotje" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.05, 0, -4.594 )
+
+[node name="kaarspotje2" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8184, 0.111881, -1.35879 )
+
+[node name="kaarspotje4" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69275, 0, 1.09369 )
+
+[node name="kaarspotje3" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0386872, 0.121437, -1.40711 )
+
+[node name="kaarspotje5" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3745, -0.00131494, -7.29018 )
+
+[node name="kaarspotje7" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9418, -0.00131494, -21.3215 )
+
+[node name="kaarspotje10" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.069, -0.00131494, -11.9478 )
+
+[node name="kaarspotje6" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6165, -0.00131494, -4.47491 )
+
+[node name="kaarspotje8" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8636, -0.00131494, -0.961839 )
+
+[node name="kaarspotje11" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26657, -0.00131494, -0.961839 )
+
+[node name="kaarspotje9" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5026, -0.00131494, -15.3472 )
+
+[node name="zon" type="Node" parent="."]
+
+[node name="night_sun" type="DirectionalLight" parent="zon"]
 transform = Transform( 0.211786, -0.974428, 0.0750767, 0.0941781, -0.0561135, -0.993973, 0.972768, 0.21758, 0.0798857, 1.46211, 17.689, -23.5523 )
 layers = 2
 light_energy = 16.0
 light_indirect_energy = 8.4
 light_cull_mask = 4294967294
 
-[node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29851, 0.725386, -19.4663 )
-light_color = Color( 0.894118, 0.631373, 0.215686, 1 )
-light_energy = 1.72
-shadow_enabled = true
-omni_range = 8.5
+[node name="bomen" type="Node" parent="."]
 
-[node name="ceres_omgeving" parent="." instance=ExtResource( 4 )]
+[node name="ceres_omgeving" parent="bomen" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0586777, -3.8147e-06, 0.0962982 )
 
-[node name="kaarspotje" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.05, 0, -4.594 )
+[node name="blobby_tree" parent="bomen" instance=ExtResource( 10 )]
+transform = Transform( 0.538344, 0, -0.842725, 0, 1, 0, 0.842725, 0, 0.538344, 0, -0.518158, -23.2609 )
 
-[node name="kaarspotje2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.942, 0, -2.409 )
+[node name="three_bush_tree" parent="bomen" instance=ExtResource( 11 )]
+transform = Transform( 0.576347, -0.104121, -0.810545, 0, 0.99185, -0.127411, 0.817205, 0.0734328, 0.571649, 5.83294, 0.131429, -21.2038 )
 
-[node name="kaarspotje4" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69275, 0, 1.09369 )
+[node name="sphere_tree" parent="bomen" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16735, -2.96212, -23.6199 )
 
-[node name="kaarspotje3" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0386872, 0.121437, -1.40711 )
+[node name="three_bush_tree2" parent="bomen" instance=ExtResource( 11 )]
+transform = Transform( 0.765464, 0, -1.84772, 0, 2, 0, 1.84772, 0, 0.765464, -4.96764, -0.968176, -23.3771 )
 
-[node name="CSGMesh" type="CSGMesh" parent="."]
-cast_shadow = 0
-mesh = SubResource( 2 )
+[node name="pijpen_ruine" type="Node" parent="."]
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5709, 2.58668, -22.5274 )
-far = 3000.0
-script = ExtResource( 6 )
+[node name="pijp_groot" parent="pijpen_ruine" instance=ExtResource( 3 )]
+
+[node name="pijp_kapot" parent="pijpen_ruine" instance=ExtResource( 2 )]
+
+[node name="ruine" parent="pijpen_ruine" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3572, 2.24575, -7.71333 )

@@ -7,8 +7,4 @@
 script = ExtResource( 2 )
 
 [node name="ster" parent="." index="0"]
-visible = false
-layers = 2
-
-[node name="ster001" parent="." index="1"]
 layers = 2

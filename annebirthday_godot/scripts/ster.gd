@@ -11,5 +11,5 @@ func _ready():
 func _physics_process(delta):
 	time += delta
 	
-	var scale_factor = (sin(time*2) + 1) /4
+	var scale_factor = (sin(time/2) + 1) /4
 	scale = Vector3(scale_factor, scale_factor, scale_factor)
