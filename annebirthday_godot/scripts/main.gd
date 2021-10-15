@@ -11,13 +11,12 @@ func _ready():
 	var rng = RandomNumberGenerator.new()
 	var grass_arr = [grass_2_scene, grass_1_scene, grass_1_scene, grass_1_scene]
 	
-	
 	# spawn stars in the sky
 	for i in range(0, star_amount):
 		var star = star_scene.instance()
-		star.translation = Vector3(normal(0.0, 80.0), 70, normal(0.0, 80.0))
+		star.translation = Vector3(normal(0.0, 70.0), rand_range(60, 80), normal(0.0, 70.0))
 		add_child(star)
-
+	
 	# spawn grass on ground
 	for i in range(0, grass_amount):
 		grass_arr.shuffle()
@@ -26,13 +25,12 @@ func _ready():
 		var scale_factor = rng.randf_range(.1, .5)
 		var rotation = grass.rotate_y(rng.randf_range(0, 2*PI))
 		grass.scale = Vector3(scale_factor, scale_factor, scale_factor)
-		grass.translation = Vector3(normal(-5, 6.0), -.1, normal(-12, 6.0))
-		
+		grass.translation = Vector3(normal(-5, 6.0), -.1, normal(-12, 6.0))		
 		add_child(grass)
 
 func normal(avg : float = 0.0, sd : float = 1.0) -> float:
 	return avg+sd*sqrt(-2*(ln(randf())))*cos(2*PI*randf())
 	
-#Natural logarithm
+# natural logarithm
 func ln(arg : float) -> float:
 	return log(arg)/log(exp(1))
