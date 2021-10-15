@@ -48,7 +48,7 @@ transform = Transform( 1, 0, 0, 0, 1.30629, 0, 0, 0, 1, 0, 0.02, 0 )
 [node name="Particles" type="Particles" parent="." index="2"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0337461, 0 )
 material_override = SubResource( 1 )
-amount = 100
+amount = 50
 randomness = 0.1
 local_coords = false
 draw_order = 1

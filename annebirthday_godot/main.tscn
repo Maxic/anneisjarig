@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://scenes/tree_bush_three.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/models/grass_2/grass_leaves.material" type="Material" id=12]
 [ext_resource path="res://scenes/tree_long_blob.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/boomstronk.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/kado.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.203922, 0.45098, 0, 1 )
@@ -40,7 +42,7 @@ mesh = SubResource( 2 )
 material = ExtResource( 12 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34771, 1.47702, -12.0471 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0911, 1.47702, -26.8939 )
 far = 3000.0
 script = ExtResource( 6 )
 
@@ -72,8 +74,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3745, -0.00131494, -7.29018
 [node name="kaarspotje7" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9418, -0.00131494, -21.3215 )
 
+[node name="kaarspotje18" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81791, 0.697987, -12.5591 )
+
 [node name="kaarspotje10" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.069, -0.00131494, -11.9478 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1736, 0.706878, -11.8318 )
+
+[node name="kaarspotje19" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.88401, 0.000934422, -10.236 )
+
+[node name="kaarspotje20" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.88401, 0.000934422, -13.6529 )
 
 [node name="kaarspotje6" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6165, -0.00131494, -4.47491 )
@@ -82,10 +93,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6165, -0.00131494, -4.47491
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8636, -0.00131494, -0.961839 )
 
 [node name="kaarspotje11" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26657, -0.00131494, -0.961839 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26354, -0.00131446, -2.20844 )
 
 [node name="kaarspotje9" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5026, -0.00131494, -15.3472 )
+
+[node name="kaarspotje17" parent="kaarsen" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9347, -0.00131494, -16.3481 )
 
 [node name="kaarspotje12" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9512, -0.00131494, -17.3274 )
@@ -233,3 +247,15 @@ transform = Transform( 0.803743, 0, 0.594977, 0, 1, 0, -0.594977, 0, 0.803743, -
 
 [node name="ruine" parent="pijpen_ruine" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3256, 2.24575, -7.7029 )
+
+[node name="kado_scene" type="Node" parent="."]
+
+[node name="boomstronk" parent="kado_scene" instance=ExtResource( 14 )]
+transform = Transform( -0.3749, 0, -0.330833, 0, 0.5, 0, 0.330833, 0, -0.3749, -8.0141, 0.551616, -12.2009 )
+
+[node name="kado" parent="kado_scene" instance=ExtResource( 15 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -8.03517, 0.638935, -12.1921 )
+
+[node name="kado_spot" type="SpotLight" parent="kado_scene"]
+transform = Transform( 1, 0, 0, 0, 0.0108906, 0.999941, 0, -0.999941, 0.0108906, -8.02094, 1.65985, -12.2831 )
+spot_range = 1.0
