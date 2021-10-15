@@ -30,6 +30,9 @@ func _input(event: InputEvent) -> void:
 		rotation.x = clamp(rotation.x - event.relative.y * MOUSE_SENSITIVITY, deg2rad(-90), deg2rad(90))
 
 func _process(delta: float) -> void:
+	if Input.is_action_pressed("open"):
+		get_node("/root/main/kado_scene/kado").open()
+	
 	if Input.is_action_pressed("move_forward"):
 		motion.z = -1
 	elif Input.is_action_pressed("move_backward"):

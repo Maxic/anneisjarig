@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/tree_long_blob.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/boomstronk.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/kado.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/kado.gd" type="Script" id=16]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.203922, 0.45098, 0, 1 )
@@ -254,7 +255,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3256, 2.24575, -7.7029 )
 transform = Transform( -0.3749, 0, -0.330833, 0, 0.5, 0, 0.330833, 0, -0.3749, -8.0141, 0.551616, -12.2009 )
 
 [node name="kado" parent="kado_scene" instance=ExtResource( 15 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -8.03517, 0.638935, -12.1921 )
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -8.03517, 0.638935, -12.1921 )
+script = ExtResource( 16 )
 
 [node name="kado_spot" type="SpotLight" parent="kado_scene"]
 transform = Transform( 1, 0, 0, 0, 0.0108906, 0.999941, 0, -0.999941, 0.0108906, -8.02094, 1.65985, -12.2831 )
