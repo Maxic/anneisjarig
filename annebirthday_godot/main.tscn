@@ -25,6 +25,7 @@ script = ExtResource( 9 )
 
 [node name="see_shit_sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.302819, 0.953048, 0, -0.953048, -0.302819, 1.46211, 17.689, 33.0521 )
+visible = false
 layers = 3
 light_energy = 0.65
 light_indirect_energy = 8.4

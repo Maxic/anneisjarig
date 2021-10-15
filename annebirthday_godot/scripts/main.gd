@@ -1,4 +1,3 @@
-tool
 extends Node
 
 var star_amount = 200
