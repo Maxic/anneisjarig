@@ -6,6 +6,6 @@
 [node name="anne_text" instance=ExtResource( 2 )]
 
 [node name="lieve_anne" parent="." index="0"]
-layers = 3
+layers = 4
 cast_shadow = 0
 material/0 = ExtResource( 1 )
