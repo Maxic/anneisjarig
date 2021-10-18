@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
@@ -15,7 +15,9 @@
 [ext_resource path="res://scenes/tree_long_blob.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/boomstronk.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/kado.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/kado.gd" type="Script" id=16]
+[ext_resource path="res://scripts/kado.gd" type="Script" id=16]
+[ext_resource path="res://scenes/birthday_text.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/anne_text.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.203922, 0.45098, 0, 1 )
@@ -261,3 +263,11 @@ script = ExtResource( 16 )
 [node name="kado_spot" type="SpotLight" parent="kado_scene"]
 transform = Transform( 1, 0, 0, 0, 0.0108906, 0.999941, 0, -0.999941, 0.0108906, -8.02094, 1.65985, -12.2831 )
 spot_range = 1.0
+
+[node name="text" type="Node" parent="."]
+
+[node name="birthday_text" parent="text" instance=ExtResource( 17 )]
+transform = Transform( -0.96625, 0.147174, -0.211424, -4.9946e-08, 0.820731, 0.571315, 0.257605, 0.552034, -0.793031, -4.46623, 28.8382, -0.118582 )
+
+[node name="anne_text" parent="text" instance=ExtResource( 18 )]
+transform = Transform( -0.96625, 0.147174, -0.211424, -4.9946e-08, 0.820731, 0.571315, 0.257605, 0.552034, -0.793031, -5.86618, 28.2866, 1.11971 )
