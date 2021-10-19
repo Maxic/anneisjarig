@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tigran Hamasyan - The Cave of Rebirth.mp3-6e5b67424fa8e9a0ac8bb885cfee3ae8.mp3str"
+
+[deps]
+
+source_file="res://assets/Tigran Hamasyan - The Cave of Rebirth.mp3"
+dest_files=[ "res://.import/Tigran Hamasyan - The Cave of Rebirth.mp3-6e5b67424fa8e9a0ac8bb885cfee3ae8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

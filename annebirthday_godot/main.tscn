@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://scenes/birthday_text.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/anne_text.tscn" type="PackedScene" id=18]
 [ext_resource path="res://text_spot.gd" type="Script" id=19]
+[ext_resource path="res://scenes/radio.tscn" type="PackedScene" id=20]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.203922, 0.45098, 0, 1 )
@@ -32,7 +33,6 @@ script = ExtResource( 9 )
 
 [node name="see_shit_sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.302819, 0.953048, 0, -0.953048, -0.302819, 1.46211, 17.689, 33.0521 )
-visible = false
 layers = 3
 light_energy = 0.65
 light_indirect_energy = 8.4
@@ -91,13 +91,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.88401, 0.000934422, -10.236
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.88401, 0.000934422, -13.6529 )
 
 [node name="kaarspotje6" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6165, -0.00131494, -4.47491 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6165, -0.00131494, -7.82054 )
 
 [node name="kaarspotje8" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8636, -0.00131494, -0.961839 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8636, -0.00131494, -2.12409 )
 
 [node name="kaarspotje11" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26354, -0.00131446, -2.20844 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.58291, -0.00131446, -2.20844 )
 
 [node name="kaarspotje9" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5026, -0.00131494, -15.3472 )
@@ -127,15 +127,7 @@ transform = Transform( 0.211786, -0.974428, 0.0750767, 0.0941781, -0.0561135, -0
 layers = 2
 light_energy = 16.0
 light_indirect_energy = 8.4
-light_cull_mask = 4294967282
-
-[node name="night_sun2" type="DirectionalLight" parent="zon"]
-transform = Transform( 0.179282, 0.983044, -0.0385098, 0.0941781, -0.0561135, -0.993973, -0.97928, 0.174574, -0.102641, -20.3471, 17.689, 6.26745 )
-visible = false
-layers = 2
-light_energy = 16.0
-light_indirect_energy = 8.4
-light_cull_mask = 4294967294
+light_cull_mask = 4293918722
 
 [node name="bomen" type="Node" parent="."]
 
@@ -251,7 +243,7 @@ transform = Transform( 0.803743, 0, 0.594977, 0, 1, 0, -0.594977, 0, 0.803743, -
 [node name="pijp_kapot" parent="pijpen_ruine" instance=ExtResource( 2 )]
 
 [node name="ruine" parent="pijpen_ruine" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3256, 2.24575, -7.7029 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3256, 2.24575, -9.22169 )
 
 [node name="kado_scene" type="Node" parent="."]
 
@@ -266,19 +258,22 @@ script = ExtResource( 16 )
 transform = Transform( 1, 0, 0, 0, 0.0108906, 0.999941, 0, -0.999941, 0.0108906, -8.02094, 1.65985, -12.2831 )
 spot_range = 1.0
 
+[node name="radio" parent="kado_scene" instance=ExtResource( 20 )]
+transform = Transform( -0.0650085, -0.00214569, -0.0759558, -0.0035986, 0.0999349, 0.000256867, 0.0759009, 0.00290033, -0.0650434, -8.46279, 0.206239, -11.5223 )
+
 [node name="text" type="Node" parent="."]
 
 [node name="birthday_text" parent="text" instance=ExtResource( 17 )]
 transform = Transform( -1.9325, 0.294347, -0.422849, -9.98919e-08, 1.64146, 1.14263, 0.51521, 1.10407, -1.58606, -4.47665, 28.8281, -0.120084 )
 
 [node name="anne_text" parent="text" instance=ExtResource( 18 )]
-transform = Transform( -1.9325, 0.294347, -0.422849, -9.98919e-08, 1.64146, 1.14263, 0.51521, 1.10407, -1.58606, -6.12495, 27.4998, 1.11821 )
+transform = Transform( -1.9325, 0.294347, -0.422849, -9.98919e-08, 1.64146, 1.14263, 0.51521, 1.10407, -1.58606, -6.12495, 27.236, 1.94961 )
 
 [node name="text_spot" type="SpotLight" parent="text"]
 transform = Transform( 1, 0, 0, 0, -0.761832, -0.647774, 0, 0.647774, -0.761832, -9.42015, 22.9044, -4.45535 )
 layers = 4
 light_color = Color( 0.807843, 0.768627, 0.635294, 1 )
-light_energy = 6.79
+light_energy = 5.66
 spot_range = 12.2
 spot_angle = 45.2
 script = ExtResource( 19 )
