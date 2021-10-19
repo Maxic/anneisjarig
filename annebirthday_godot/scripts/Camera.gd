@@ -1,81 +1,58 @@
 extends Camera
 
-const MOUSE_SENSITIVITY = 0.002
+var speed = 7
+var acceleration = 10
+var gravity = 0.09
+var jump = 10
 
+var mouse_sensitivity = 0.03
 
+var direction = Vector3()
+var velocity = Vector3()
+var fall = Vector3() 
 
-# The camera movement speed (tweakable using the mouse wheel)
-var move_speed := .5
-
-# Stores where the camera is wanting to go (based on pressed keys and speed modifier)
-var motion := Vector3()
-
-# Stores the effective camera velocity
-var velocity := Vector3()
-
-# The initial camera node rotation
-var initial_rotation
+onready var head = $Head
 
 func _ready():
-	#rotation_degrees.y = -130
-	initial_rotation = rotation_degrees.y
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func _input(event):
+	
+	if event is InputEventMouseMotion:
+		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity)) 
+		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity)) 
+		head.rotation.x = clamp(head.rotation.x, deg2rad(-90), deg2rad(90))
 
-func _input(event: InputEvent) -> void:
-	# Mouse look (effective only if the mouse is captured)
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		# Horizontal mouse look
-		rotation.y -= event.relative.x * MOUSE_SENSITIVITY
-		# Vertical mouse look, clamped to -90..90 degrees
-		rotation.x = clamp(rotation.x - event.relative.y * MOUSE_SENSITIVITY, deg2rad(-90), deg2rad(90))
-
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("open"):
-		get_node("/root/main/kado_scene/kado").open()
+func _physics_process(delta):
+	
+	direction = Vector3()
+	
+	move_and_slide(fall, Vector3.UP)
+	
+	if not is_on_floor():
+		fall.y -= gravity
+		
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		fall.y = jump
+		
 	
 	if Input.is_action_pressed("move_forward"):
-		motion.z = -1
+	
+		direction -= transform.basis.z
+	
 	elif Input.is_action_pressed("move_backward"):
-		motion.z = 1
-	else:
-		motion.z = 0
-
-	if Input.is_action_pressed("move_left"):
-		motion.x = -1
-	elif Input.is_action_pressed("move_right"):
-		motion.x = 1
-	else:
-		motion.x = 0
-
-	motion.y = 0
-
-	# Normalize motion
-	# (prevents diagonal movement from being `sqrt(2)` times faster than straight movement)
-	motion = motion.normalized()
-
-#	# Speed modifier
-#	if Input.is_action_pressed("move_speed"):
-#		motion *= 3
 		
-	# toggle cursor from visible to captured
-	if Input.is_action_just_released("toggle_cursor"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else	:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		direction += transform.basis.z
+		
+	if Input.is_action_pressed("move_left"):
+		
+		direction -= transform.basis.x			
+		
+	elif Input.is_action_pressed("move_right"):
+		
+		direction += transform.basis.x
 			
-	# Rotate the motion based on the camera angle
-	motion = motion \
-		.rotated(Vector3(0, 1, 0), rotation.y - initial_rotation) \
-		.rotated(Vector3(1, 0, 0), cos(rotation.y) * rotation.x) \
-		.rotated(Vector3(0, 0, 1), -sin(rotation.y) * rotation.x)
-
-	# Add motion, apply friction and velocity
-	velocity += motion * move_speed
-	velocity *= 0.9
-	translation += velocity * delta
-
-
-func _exit_tree() -> void:
-	# Restore the mouse cursor upon quitting
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+	direction = direction.normalized()
+	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta) 
+	velocity = move_and_slide(velocity, Vector3.UP) 

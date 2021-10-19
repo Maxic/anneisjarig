@@ -15,24 +15,24 @@ shader_param/edge_softness = 0.1
 shader_param/noise_texture = ExtResource( 3 )
 shader_param/texture_mask = ExtResource( 4 )
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0.0723684, 0.0784091 ), 0.0, 1.22348, 0, 0, Vector2( 0.335526, 0.496591 ), -0.277411, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
+[sub_resource type="CurveTexture" id=3]
 width = 128
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=4]
 direction = Vector3( 0, 1, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0.001, 0 )
 linear_accel = 0.5
 scale = 0.4
 scale_random = 0.2
-scale_curve = SubResource( 4 )
+scale_curve = SubResource( 3 )
 color_ramp = ExtResource( 5 )
 
-[sub_resource type="QuadMesh" id=2]
+[sub_resource type="QuadMesh" id=5]
 size = Vector2( 0.5, 0.5 )
 
 [node name="kaarspotje" instance=ExtResource( 1 )]
@@ -52,12 +52,12 @@ amount = 50
 randomness = 0.1
 local_coords = false
 draw_order = 1
-process_material = SubResource( 5 )
-draw_pass_1 = SubResource( 2 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="OmniLight" type="OmniLight" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
 light_color = Color( 0.968627, 0.796078, 0.341176, 1 )
-light_energy = 1.5
+light_energy = 0.2
 shadow_enabled = true
-omni_range = 8.0
+omni_range = 6.0

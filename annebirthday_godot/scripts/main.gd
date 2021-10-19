@@ -25,7 +25,7 @@ func _ready():
 		var scale_factor = rng.randf_range(.1, .5)
 		grass.rotate_y(rng.randf_range(0, 2*PI))
 		grass.scale = Vector3(scale_factor, scale_factor, scale_factor)
-		grass.translation = Vector3(normal(-5, 6.0), -.1, normal(-12, 6.0))		
+		grass.translation = Vector3(normal(-14, 20.0), -.1, normal(-17, 20.0))		
 		add_child(grass)
 
 func normal(avg : float = 0.0, sd : float = 1.0) -> float:
