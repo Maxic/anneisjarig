@@ -1,11 +1,11 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/pijp_groot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ceres_omgeving.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/kaarspotje.tscn" type="PackedScene" id=5]
-[ext_resource path="res://player.gd" type="Script" id=6]
+[ext_resource path="res://scripts/player.gd" type="Script" id=6]
 [ext_resource path="res://scenes/ruine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/tree_sphere.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/main.gd" type="Script" id=9]
@@ -18,21 +18,24 @@
 [ext_resource path="res://scripts/kado.gd" type="Script" id=16]
 [ext_resource path="res://scenes/birthday_text.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/anne_text.tscn" type="PackedScene" id=18]
-[ext_resource path="res://text_spot.gd" type="Script" id=19]
+[ext_resource path="res://scripts/text_spot.gd" type="Script" id=19]
 [ext_resource path="res://scenes/radio.tscn" type="PackedScene" id=20]
 
-[sub_resource type="CapsuleShape" id=4]
+[sub_resource type="CapsuleShape" id=1]
 radius = 0.5
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.203922, 0.45098, 0, 1 )
 
-[sub_resource type="PlaneMesh" id=2]
-material = SubResource( 1 )
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
 size = Vector2( 20, 20 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 10, 1, 10 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1.52679, 0.629986, 1 )
 
 [node name="main" type="Node"]
 script = ExtResource( 9 )
@@ -48,7 +51,7 @@ light_indirect_energy = 8.4
 environment = ExtResource( 1 )
 
 [node name="player" type="KinematicBody" parent="."]
-transform = Transform( -0.993578, 0, 0.113151, 0, 1, 0, -0.113151, 0, -0.993578, -37.4314, 0, -48.3579 )
+transform = Transform( -0.794862, 0, 0.0905211, 0, 0.8, 0, -0.0905211, 0, -0.794862, -37.4314, 0, -48.3579 )
 script = ExtResource( 6 )
 
 [node name="Camera" type="Camera" parent="player"]
@@ -57,7 +60,7 @@ far = 3000.0
 
 [node name="CollisionShape" type="CollisionShape" parent="player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.00317, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 0.652786, 3.31132e-08, -0.757542, 0.757542, -2.85342e-08, 0.652786, 0, -1, -4.37114e-08, -21.4407, 24.8179, 0.539987 )
@@ -72,189 +75,189 @@ spot_angle = 29.5
 
 [node name="grond" type="MeshInstance" parent="grond"]
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond2" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond2/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond3" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond3"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond3/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond4" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond4"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond4/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond5" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond5"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond5/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond6" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond6"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond6/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond7" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -20 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond7"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond7/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond9" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond9"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond9/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond10" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -60 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond10"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond10/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond11" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -60 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond11"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond11/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond12" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -40 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond12"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond12/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond13" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond13"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond13/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond14" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -40 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond14"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond14/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond15" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond15"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond15/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond16" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond16"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond16/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond17" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond17"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond17/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="grond8" type="MeshInstance" parent="grond"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grond/grond8"]
 
 [node name="CollisionShape" type="CollisionShape" parent="grond/grond8/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="kaarsen" type="Node" parent="."]
 
@@ -809,6 +812,13 @@ transform = Transform( -0.3749, 0, -0.330833, 0, 0.5, 0, 0.330833, 0, -0.3749, -
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -8.03517, 0.638935, -12.1921 )
 script = ExtResource( 16 )
 
+[node name="Area" type="Area" parent="kado_scene/kado"]
+transform = Transform( 3, 0, 5.77705e-07, 0, 3, 0, -5.77705e-07, 0, 3, 2.00999, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="kado_scene/kado/Area"]
+transform = Transform( 1, 0, -2.17097e-08, 0, 2.06894, 0, -2.17097e-08, 0, 1.24833, 0, 0, 0 )
+shape = SubResource( 5 )
+
 [node name="kado_spot" type="SpotLight" parent="kado_scene"]
 transform = Transform( 1, 0, 0, 0, 0.0108906, 0.999941, 0, -0.999941, 0.0108906, -8.02094, 1.65985, -12.2831 )
 spot_range = 1.0
@@ -835,3 +845,5 @@ light_energy = 5.66
 spot_range = 12.2
 spot_angle = 45.2
 script = ExtResource( 19 )
+
+[connection signal="body_entered" from="kado_scene/kado/Area" to="kado_scene/kado" method="_on_Area_body_entered"]
