@@ -11,6 +11,8 @@ var direction = Vector3()
 var velocity = Vector3()
 var fall = Vector3() 
 
+var camera_speed = .18
+
 onready var head = $Camera
 
 func _ready():
@@ -23,6 +25,12 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-90), deg2rad(90))
 
 func _physics_process(delta):	
+	if GameState.finished_reading:
+		var T =global_transform.looking_at(get_node("/root/main/text/anne_text").global_transform.origin, Vector3(0,1,0))
+		global_transform.basis.y=lerp(global_transform.basis.y, T.basis.y, delta*camera_speed)
+		global_transform.basis.x=lerp(global_transform.basis.x, T.basis.x, delta*camera_speed)
+		global_transform.basis.z=lerp(global_transform.basis.z, T.basis.z, delta*camera_speed)
+	
 	# toggle cursor from visible to captured
 	if Input.is_action_just_released("toggle_cursor"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

@@ -3,7 +3,7 @@ extends Spatial
 func open():
 	$AnimationPlayer.play("open")
 	$open_present.visible = false
-	GameState.disable_controls = true
+	#GameState.disable_controls = true
 
 func _on_Area_body_entered(body):
 	if body.name == "player":
@@ -20,3 +20,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_kado_player_animation_finished(anim_name):
 	GameState.finished_reading = true
+	GameState.disable_controls = true

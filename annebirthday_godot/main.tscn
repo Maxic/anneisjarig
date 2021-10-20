@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/tree_long_blob.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/boomstronk.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/kado.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/Tigran Hamasyan - The Cave of Rebirth.mp3" type="AudioStream" id=16]
 [ext_resource path="res://scenes/birthday_text.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/anne_text.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scripts/text_spot.gd" type="Script" id=19]
@@ -879,6 +880,11 @@ spot_range = 1.0
 [node name="radio" parent="kado_scene" instance=ExtResource( 20 )]
 transform = Transform( -0.175535, 0, -0.17801, 0, 0.25, 0, 0.17801, 0, -0.175535, -8.44919, 0.204611, -11.4801 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="kado_scene/radio"]
+transform = Transform( -2.80856, 0, 2.84816, 0, 4, 0, -2.84816, 0, -2.80856, 8.96709, -0.818444, -56.3071 )
+stream = ExtResource( 16 )
+autoplay = true
+
 [node name="brief" parent="kado_scene" instance=ExtResource( 12 )]
 transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -7.9327, 0.365365, -12.1713 )
 
@@ -892,6 +898,7 @@ transform = Transform( -1.9325, 0.294347, -0.422849, -9.98919e-08, 1.64146, 1.14
 
 [node name="text_spot" type="SpotLight" parent="text"]
 transform = Transform( 1, 0, 0, 0, -0.761832, -0.647774, 0, 0.647774, -0.761832, -9.42015, 22.9044, -4.45535 )
+visible = false
 layers = 4
 light_color = Color( 0.807843, 0.768627, 0.635294, 1 )
 light_energy = 5.66
