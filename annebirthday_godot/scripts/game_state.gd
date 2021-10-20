@@ -6,7 +6,7 @@ var disable_controls = false
 var finished_reading = false
 
 var timer = 0
-var time_threshold = 660
+var time_threshold = 960
 
 func _physics_process(delta):
 	if finished_reading:

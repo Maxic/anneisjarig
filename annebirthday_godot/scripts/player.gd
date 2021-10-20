@@ -5,7 +5,7 @@ var acceleration = 10
 var gravity = 0.09
 var jump = 10
 
-var mouse_sensitivity = 0.06
+var mouse_sensitivity = 0.03
 
 var direction = Vector3()
 var velocity = Vector3()
