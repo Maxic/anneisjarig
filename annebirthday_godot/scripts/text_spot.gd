@@ -6,7 +6,7 @@ func _ready():
 	light_energy = 0
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("open"):
+	if Input.is_action_just_pressed("open") and GameState.ready_to_light_text:
 		light_up = true
 	
 	if light_up:

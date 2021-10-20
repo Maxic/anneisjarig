@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/anne_text.glb-0080998c61bcec5e613d28bd1ec24c4c.scn"
+path="res://.import/birthday_text.glb-3948f3daec505de959134e838d8fa597.scn"
 
 [deps]
 
-source_file="res://assets/models/text_bday/anne_text.glb"
-dest_files=[ "res://.import/anne_text.glb-0080998c61bcec5e613d28bd1ec24c4c.scn" ]
+source_file="res://assets/models/text/birthday_text.glb"
+dest_files=[ "res://.import/birthday_text.glb-3948f3daec505de959134e838d8fa597.scn" ]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/models/text_bday/birthday_text.glb" type="PackedScene" id=1]
-[ext_resource path="res://assets/models/text_bday/Material.material" type="Material" id=2]
+[ext_resource path="res://assets/models/text/birthday_text.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/models/text/Material.material" type="Material" id=2]
 
 [node name="birthday_text" instance=ExtResource( 1 )]
 

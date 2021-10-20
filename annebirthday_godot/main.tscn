@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/enviroment_night.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/pijp_kapot.tscn" type="PackedScene" id=2]
@@ -15,11 +15,11 @@
 [ext_resource path="res://scenes/tree_long_blob.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/boomstronk.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/kado.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scripts/kado.gd" type="Script" id=16]
 [ext_resource path="res://scenes/birthday_text.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/anne_text.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scripts/text_spot.gd" type="Script" id=19]
 [ext_resource path="res://scenes/radio.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/open_present.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -37,6 +37,53 @@ extents = Vector3( 10, 1, 10 )
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 1.52679, 0.629986, 1 )
 
+[sub_resource type="Animation" id=6]
+resource_name = "brief"
+length = 9.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("../brief")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -7.9327, 0.334079, -12.1713, 0, 0, 0, 1, 0.5, 0.5, 0.5 )
+tracks/1/type = "value"
+tracks/1/path = NodePath("../brief:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 7.56, 90, 3.38349e-07 ), Vector3( 15.12, 90, 6.76698e-07 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../brief:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 3, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -7.9327, 0.365365, -12.1713 ), Vector3( -7.9327, 1.29798, -12.1713 ), Vector3( -8.34319, 1.26058, -12.1713 ), Vector3( -8.50468, 1.00285, -12.1713 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../kaarsen/kaarspotje19:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -8.30807, 0.693961, -12.4707 ), Vector3( -8.71824, 0.925087, -12.4205 ) ]
+}
+
 [node name="main" type="Node"]
 script = ExtResource( 9 )
 
@@ -51,7 +98,7 @@ light_indirect_energy = 8.4
 environment = ExtResource( 1 )
 
 [node name="player" type="KinematicBody" parent="."]
-transform = Transform( -0.794862, 0, 0.0905211, 0, 0.8, 0, -0.0905211, 0, -0.794862, -37.4314, 0, -48.3579 )
+transform = Transform( -0.788619, 0, -0.134461, 0, 0.8, 0, 0.134461, 0, -0.788619, -33.9924, 0.0846928, -48.7396 )
 script = ExtResource( 6 )
 
 [node name="Camera" type="Camera" parent="player"]
@@ -262,22 +309,22 @@ shape = SubResource( 4 )
 [node name="kaarsen" type="Node" parent="."]
 
 [node name="kaarspotje" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.05, 0, -4.594 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.05, 0, -3.9286 )
 
 [node name="kaarspotje21" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3817, 0, -28.1244 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3486, 0, -29.1849 )
 
 [node name="kaarspotje44" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0499, 0, -35.581 )
 
 [node name="kaarspotje22" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8722, 0, -25.4741 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8498, 0, -25.4741 )
 
 [node name="kaarspotje45" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4375, 0, -17.83 )
 
 [node name="kaarspotje30" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4148, 0, -39.99 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.1767, 0, -41.5384 )
 
 [node name="kaarspotje24" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6556, 0, -13.3527 )
@@ -292,7 +339,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8877, 0, -1.55417 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5613, 0, 2.21625 )
 
 [node name="kaarspotje27" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7855, 0, -44.622 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9, 0, -45.7202 )
 
 [node name="kaarspotje31" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.84, 0, -46.1616 )
@@ -301,7 +348,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.84, 0, -46.1616 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9447, 9.53674e-07, -55.0033 )
 
 [node name="kaarspotje33" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8884, 9.53674e-07, -51.1592 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8884, 9.53674e-07, -53.5945 )
 
 [node name="kaarspotje35" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 0.860547, 0, 0.509372, 0, 1, 0, -0.509372, 0, 0.860547, -34.9383, 9.53674e-07, -44.3291 )
@@ -364,7 +411,7 @@ transform = Transform( 0.405046, 0, 0.914296, 0, 1, 0, -0.914296, 0, 0.405046, -
 transform = Transform( 0.123619, 0, 0.99233, 0, 1, 0, -0.99233, 0, 0.123619, -13.196, 9.53674e-07, -14.9021 )
 
 [node name="kaarspotje34" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8499, 9.53674e-07, -32.6869 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.994, 9.53674e-07, -31.2212 )
 
 [node name="kaarspotje28" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46828, -9.53674e-07, -24.0922 )
@@ -373,7 +420,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46828, -9.53674e-07, -24.09
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8473, -1.90735e-06, -27.8172 )
 
 [node name="kaarspotje23" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2725, 0, -35.5827 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5003, 0, -35.5827 )
 
 [node name="kaarspotje2" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8184, 0.111881, -1.35879 )
@@ -403,13 +450,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3745, -0.00131494, -7.29018
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9418, -0.00131494, -21.3215 )
 
 [node name="kaarspotje18" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81791, 0.697987, -12.5591 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46814, 0, -24.3274 )
 
 [node name="kaarspotje10" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1736, 0.706878, -11.8318 )
 
 [node name="kaarspotje19" parent="kaarsen" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 0.997582, 0.0694953, 0, -0.0694953, 0.997582, -8.33373, 0.706878, -12.4771 )
+transform = Transform( 1, 0, 0, 0, 0.997582, 0.0694953, 0, -0.0694953, 0.997582, -8.30807, 0.693961, -12.4707 )
 
 [node name="kaarspotje6" parent="kaarsen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6165, -0.00131494, -7.82054 )
@@ -810,14 +857,20 @@ transform = Transform( -0.3749, 0, -0.330833, 0, 0.5, 0, 0.330833, 0, -0.3749, -
 
 [node name="kado" parent="kado_scene" instance=ExtResource( 15 )]
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -8.03517, 0.638935, -12.1921 )
-script = ExtResource( 16 )
 
 [node name="Area" type="Area" parent="kado_scene/kado"]
 transform = Transform( 3, 0, 5.77705e-07, 0, 3, 0, -5.77705e-07, 0, 3, 2.00999, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="kado_scene/kado/Area"]
-transform = Transform( 1, 0, -2.17097e-08, 0, 2.06894, 0, -2.17097e-08, 0, 1.24833, 0, 0, 0 )
+transform = Transform( 1, 0, -2.17098e-08, 0, 2.06894, 0, -2.17097e-08, 0, 1.24833, 0, 0, 0 )
 shape = SubResource( 5 )
+
+[node name="open_present" parent="kado_scene/kado" instance=ExtResource( 21 )]
+transform = Transform( -2.01523e-08, -0.0800698, 0.493547, -1.04999e-08, 0.493547, 0.0800698, -0.5, -7.13722e-09, -2.15736e-08, 2.30471, 0.205274, 0 )
+visible = false
+
+[node name="kado_player" type="AnimationPlayer" parent="kado_scene/kado"]
+anims/brief = SubResource( 6 )
 
 [node name="kado_spot" type="SpotLight" parent="kado_scene"]
 transform = Transform( 1, 0, 0, 0, 0.0108906, 0.999941, 0, -0.999941, 0.0108906, -8.02094, 1.65985, -12.2831 )
@@ -827,7 +880,7 @@ spot_range = 1.0
 transform = Transform( -0.175535, 0, -0.17801, 0, 0.25, 0, 0.17801, 0, -0.175535, -8.44919, 0.204611, -11.4801 )
 
 [node name="brief" parent="kado_scene" instance=ExtResource( 12 )]
-transform = Transform( 0.00457272, 0, 0.499979, 0, 0.5, 0, -0.499979, 0, 0.00457272, -7.9327, -0.281549, -12.1713 )
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -7.9327, 0.365365, -12.1713 )
 
 [node name="text" type="Node" parent="."]
 
@@ -847,3 +900,5 @@ spot_angle = 45.2
 script = ExtResource( 19 )
 
 [connection signal="body_entered" from="kado_scene/kado/Area" to="kado_scene/kado" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="kado_scene/kado/Area" to="kado_scene/kado" method="_on_Area_body_exited"]
+[connection signal="animation_finished" from="kado_scene/kado/kado_player" to="kado_scene/kado" method="_on_kado_player_animation_finished"]
